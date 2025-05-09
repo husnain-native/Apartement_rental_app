@@ -20,8 +20,8 @@ export const addApartment = async (apartment, image) => {
   }
 
   let imageUrl = '';
-  if (image) {
-    const ref = storage().ref(`apartmentImages/${Date.now()}_${image.fileName}`);
+  if (image && image.uri) {
+    const ref = storage().ref(`apartmentImages/${Date.now()}_${image.fileName || 'image.jpg'}`);
     await ref.putFile(image.uri);
     imageUrl = await ref.getDownloadURL();
   }
@@ -37,8 +37,8 @@ export const updateApartment = async (id, apartment, image) => {
   }
 
   let imageUrl = apartment.imageUrl || '';
-  if (image) {
-    const ref = storage().ref(`apartmentImages/${Date.now()}_${image.fileName}`);
+  if (image && image.uri) {
+    const ref = storage().ref(`apartmentImages/${Date.now()}_${image.fileName || 'image.jpg'}`);
     await ref.putFile(image.uri);
     imageUrl = await ref.getDownloadURL();
   }

@@ -24,9 +24,16 @@ const AddEditApartmentScreen = ({ navigation, route }) => {
       if (response.didCancel) {
         console.log('User cancelled image picker');
       } else if (response.errorCode) {
-        setError(response.errorMessage);
+        setError(response.errorMessage || 'Image picker error');
+      } else if (response.assets && response.assets.length > 0) {
+        // Extract uri and fileName from the first asset
+        const selectedImage = {
+          uri: response.assets[0].uri,
+          fileName: response.assets[0].fileName || `image_${Date.now()}.jpg`,
+        };
+        setImage(selectedImage);
       } else {
-        setImage(response);
+        setError('No image selected');
       }
     });
   };
@@ -48,7 +55,7 @@ const AddEditApartmentScreen = ({ navigation, route }) => {
       }
       navigation.goBack();
     } catch (err) {
-      setError(err.message);
+      setError(err.message || 'Failed to save apartment');
     }
     setLoading(false);
   };
