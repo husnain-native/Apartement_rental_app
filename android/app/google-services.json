@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "181373499184",
+    "project_id": "apartmentrentals-95fa0",
+    "storage_bucket": "apartmentrentals-95fa0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:181373499184:android:ce250058463c2d249ebaf5",
+        "android_client_info": {
+          "package_name": "com.rental_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtsqfJHazXVyg2rnIrPg8SO5i4aFXUiiA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
